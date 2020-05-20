@@ -1,0 +1,5 @@
+requests
+praw
+six
+decorator
+update-checker
