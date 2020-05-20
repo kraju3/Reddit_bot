@@ -3,3 +3,4 @@ praw
 six
 decorator
 update-checker
+python-dotenv
