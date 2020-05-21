@@ -40,9 +40,12 @@ def incoming_messages(id):
 
     if body['ok']:
         for value in body['result']:
-            chat_sender_id = value['message']['chat']['id']
             try:
-                chat_content = value['message']['txt']
+                chat_sender_id = value['message' or 'edited_message']['chat']['id']
+            except KeyError:
+                pass
+            try:
+                chat_content = value['message']['text']
                 chat_text = chat_content.split()
             except KeyError:
                 chat_content = ''
@@ -57,9 +60,10 @@ def incoming_messages(id):
 
             r = re.search('(source+)(.*)',chat_content)
 
-            if (r is not None and r.group(1)=='soource'):
+            if (r is not None and r.group(1)=='source'):
                 if r.group(2):
                     sources_dict[id_]= r.group(2)
+                    log.debug('Sources set for {0} to {1}'.format(sources_dict[id_], r.group(2)))
                     send(id_,'Sources set as {0}!'.format(r.group(2)))
                 else:
                     send(id_,'Need a comma separated list of subreddits! No subreddits given no news returned')
@@ -86,10 +90,10 @@ def incoming_messages(id):
                 else:
                     summarized_news = latest_news(sources_dict[id_])
                     send(id_, summarized_news)
-            id = body['update_id']
+            id = value['update_id']
             with open('id.txt', 'w') as f:
                 f.write(str(id))
-                States.last_updated = id
+                States.last_updated_id = id
                 log.debug(
                     'Updated last_updated to {0}'.format(id))
             f.close()

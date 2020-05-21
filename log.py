@@ -5,8 +5,6 @@ class States(object):
     last_updated_id = ''
 
 logging.basicConfig(level=logging.INFO,
-                    format='%(levelname)s: %(asctime)s - %(funcName)s - %(message)s',filename='log.txt')
+                    format='%(levelname)s: %(asctime)s - %(funcName)s - %(message)s')
 
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(levelname)s: %(asctime)s - %(funcName)s - %(message)s',filename ='debug.txt')
 log = logging.getLogger('nbt')

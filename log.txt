@@ -1,3 +1,0 @@
-INFO: 2020-05-20 14:39:02,387 - <module> - Recieved keyboard interrupt..exiting out of the bot service
-INFO: 2020-05-20 14:43:51,715 - <module> - Recieved keyboard interrupt..exiting out of the bot service
-INFO: 2020-05-20 14:44:09,683 - <module> - Recieved keyboard interrupt..exiting out of the bot service

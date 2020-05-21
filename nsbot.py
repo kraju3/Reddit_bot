@@ -8,7 +8,7 @@ def last_updated():
                 last_updated = int(f.read())
             except ValueError:
                 last_updated = 0
-            f.close()
+        f.close()
     except FileNotFoundError:
             last_updated = 0
     log.debug('Last updated id: {0}'.format(last_updated))

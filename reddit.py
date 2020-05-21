@@ -14,7 +14,7 @@ def latest_news(subs):
     if reddit_client_id is None or reddit_client_secret is None:
         return errmessage
 
-    r = praw.Reddit(user_agent='SubReddit NewsFetcher Bot',client_id=reddit_client_id,client_secret=reddit_client_secret)
+    r = praw.Reddit(user_agent='SubReddit Newsfetcher Bot',client_id=reddit_client_id,client_secret=reddit_client_secret)
     subs = cleansubs(subs)
 
     log.debug("Fetching latest news from subs {0}".format(subs))

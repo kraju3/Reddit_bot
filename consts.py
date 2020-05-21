@@ -1,8 +1,7 @@
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 
-project_folder = os.path.expanduser('~/SubRedditFetcher')  # adjust as appropriate
-load_dotenv(os.path.join(project_folder, '.env'))
+load_dotenv(find_dotenv())
 
 NO_SOURCE_ERR ='No sources.Set a Source using /source'
 skip_list = []
@@ -16,3 +15,7 @@ reddit_client_secret = os.getenv('REDDIT_SECRET')
 API = 'https://api.telegram.org/bot'
 update_time = 6
 false_response = {"ok":False}
+
+print(bot_key)
+print(reddit_client_id)
+print(reddit_client_secret)
